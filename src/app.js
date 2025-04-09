@@ -1,11 +1,16 @@
-const express = require('express')
-const app = express()
-const port = 3000
+import express from "express";
+import { config } from "dotenv";
+config();
 
-app.get('/', (req, res) => {
-  res.send('Halo kalian')
-})
+const app = express();
+const PORT = process.env.PORT || 5000;
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.send("Halo kalian");
+});
+
+app.listen(PORT, () => {
+  console.log(`Example app listening on port ${PORT}`);
+});
