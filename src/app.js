@@ -8,7 +8,10 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send("Halo kalian");
+  res.status(200).json({
+    success: true,
+    message: "Welcome to the Express.js API!",
+  });
 });
 
 app.listen(PORT, () => {
