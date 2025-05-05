@@ -25,8 +25,7 @@ router.get("/private", requireAuth(), async (req, res) => {
   try {
     const user = await clerkClient.users.getUser(userId);
 
-    // Dapatkan username atau nama lain
-    const username = user.username; // opsional, bisa juga `user.firstName`, `user.emailAddresses[0].emailAddress`, dll
+    const username = user.username;
 
     res.json({
       userId: user.id,
