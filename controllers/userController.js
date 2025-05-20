@@ -17,6 +17,11 @@ const getUser = async (req, res) => {
     }
 }
 
-export default {
-    getUser
+const updateUser = async (req, res) => {
+    res.message("User updated successfully");
+}
+
+module.exports = {
+    getUser,
+    updateUser
 }
