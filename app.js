@@ -1,6 +1,6 @@
 const express = require('express');
 const configDotenv = require("dotenv").config;
-const { clerkMiddleware } = require("@clerk/clerk-sdk-node");
+const { clerkMiddleware } = require("@clerk/express");
 const indexRoutes = require("./routes/index");
 const cors = require("cors");
 

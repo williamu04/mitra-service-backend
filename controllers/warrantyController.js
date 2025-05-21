@@ -1,10 +1,19 @@
 
 const postWarranty = async (req, res) => {
-    res.message("Warranty request received");
+    res.status(200).json({
+        message: "Warranty claim submitted",
+    });
 }
 
 const getWarrantyStatus = async (req, res) => {
-    res.message("Warranty status retrieved");
+    const warrantyId = req.params.warrantyId;
+    res.status(200).json({
+        message: "Warranty status",
+        data: {
+            warrantyId: warrantyId,
+            status: "Approved",
+        }
+    });
 }
 
 module.exports = {

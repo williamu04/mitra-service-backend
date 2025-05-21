@@ -1,10 +1,22 @@
 
 const postPayment = async (req, res) => {
-    res.message("Payment request received");
+    res.status(200).json({
+        message: "Payment processed",
+        data: {
+            paymentUrl: "https://paymentgateway.com/transaction/123456",
+        }
+    });
 }
 
 const getPaymentStatus = async (req, res) => {
-    res.message("Payment status retrieved");
+    const paymentId  = req.params;
+    res.status(200).json({
+        message: "Payment status",
+        data: {
+            paymentId: paymentId,
+            status: "Paid",
+        }
+    });
 }
 
 module.exports = {
