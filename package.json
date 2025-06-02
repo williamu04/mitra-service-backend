@@ -1,24 +1,37 @@
 {
-  "name": "mitra-service-backend",
+  "name": "mitra-service",
+  "private": true,
   "version": "1.0.0",
-  "description": "",
-  "license": "ISC",
-  "author": "",
-  "type": "commonjs",
-  "main": "index.js",
+  "main": "package.json",
+  "license": "UNLICENSED",
   "scripts": {
-    "dev": "nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "sanity dev",
+    "start": "sanity start",
+    "build": "sanity build",
+    "deploy": "sanity deploy",
+    "deploy-graphql": "sanity graphql deploy"
   },
+  "keywords": [
+    "sanity"
+  ],
   "dependencies": {
-    "@clerk/express": "^1.4.2",
-    "@prisma/client": "^6.7.0",
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.7",
-    "express": "^5.1.0",
-    "prisma": "^6.7.0"
+    "@sanity/vision": "^3.90.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sanity": "^3.90.0",
+    "styled-components": "^6.1.15"
   },
   "devDependencies": {
-    "nodemon": "^3.1.9"
+    "@sanity/eslint-config-studio": "^5.0.2",
+    "@types/react": "^18.0.25",
+    "eslint": "^9.9.0",
+    "prettier": "^3.0.2",
+    "typescript": "^5.1.6"
+  },
+  "prettier": {
+    "semi": false,
+    "printWidth": 100,
+    "bracketSpacing": false,
+    "singleQuote": true
   }
 }
