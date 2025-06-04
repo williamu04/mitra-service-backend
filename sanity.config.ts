@@ -7,8 +7,8 @@ export default defineConfig({
   name: 'default',
   title: 'Mitra Service',
 
-  projectId: '18ium23p',
-  dataset: 'mitra_dev',
+  projectId: 'ozyqsoog',
+  dataset: 'production',
 
   plugins: [structureTool(), visionTool()],
 

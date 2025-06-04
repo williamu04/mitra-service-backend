@@ -6,40 +6,12 @@ export const user = defineType({
   title: "User",
   type: "document",
   fields: [
-    defineField({
-      name: "name",
-      type: "string",
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: "email",
-      type: "string",
-        validation: (Rule) => Rule.required().email(),
-    }),
-    defineField({
-        name: "phone",
-        type: "string",
-        validation: (Rule) => Rule.required().regex(/^\+?[1-9]\d{1,14}$/, {
-            name: 'phone number',
-            invert: false
-        }),
-    }),
-    defineField({
-        name: "role",
-        type: "string",
-        options: {
-          list: [
-            { title: "Admin", value: "admin" },
-            { title: "User", value: "user" },
-          ],
-        },
-    }),
-    defineField({
-      name: "createdAt",
-      type: "datetime",
-      readOnly: true,
-      initialValue: () => new Date().toISOString(),
-    }),
-  ]
+    { name: "email", type: "string", title: "Email" },
+    { name: "password", type: "string", title: "Password" },
+    { name: "profilePicture", type: "image", title: "Profile Picture" },
+    { name: "role", type: "string", title: "Role", options: { list: ["admin", "technician", "customer"] } },
+    { name: "linkedCustomer", type: "reference", to: [{ type: "customer" }] },
+    { name: "linkedTechnician", type: "reference", to: [{ type: "technician" }] },
+  ],
 });
     
