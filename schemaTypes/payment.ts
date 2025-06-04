@@ -1,9 +1,9 @@
 import { defineField, defineType } from "sanity";
 
 
-export const repair = defineType({
-  name: "repair",
-    title: "Repair",
+export const payment = defineType({
+  name: "payment",
+    title: "Payment",
     type: "document",
     fields: [
         defineField({
@@ -13,14 +13,15 @@ export const repair = defineType({
             validation: (Rule) => Rule.required(),
         }),
         defineField({
-            name: "device",
-            type: "string",
+            name: "repair_id",
+            type: "reference",
+            to: [{ type: "repair" }],
             validation: (Rule) => Rule.required(),
         }),
         defineField({
-            name: "issue",
-            type: "text",
-            validation: (Rule) => Rule.required(),
+            name: "amount",
+            type: "number",
+            validation: (Rule) => Rule.required().min(0).error("Amount must be a positive number."),
         }),
         defineField({
             name: "status",
@@ -28,9 +29,8 @@ export const repair = defineType({
             options: {
                 list: [
                     { title: "Pending", value: "pending" },
-                    { title: "In Progress", value: "in_progress" },
                     { title: "Completed", value: "completed" },
-                    { title: "Cancelled", value: "cancelled" },
+                    { title: "Failed", value: "failed" },
                 ],
             },
             validation: (Rule) => Rule.required(),
@@ -48,16 +48,24 @@ export const repair = defineType({
             initialValue: () => new Date().toISOString(),
         }),
         defineField({
-            name: "estimatedTime",
-            type: "datetime",
-            validation: (Rule) => Rule.min(new Date().toISOString()).error("Estimated completion date must be in the future."),
+            name: "paymentMethod",
+            type: "string",
+            options: {
+                list: [
+                    { title: "Credit Card", value: "credit_card" },
+                    { title: "E-Wallet", value: "e_wallet" },
+                    { title: "Bank Transfer", value: "bank_transfer" },
+                ],
+            },
+            validation: (Rule) => Rule.required(),
         }),
         defineField({
-            name: "warrantyClaim",
-            type: "boolean",
-            initialValue: false,
-            validation: (Rule) => Rule.required().error("Warranty claim status is required."),
+            name: "paymentUrl",
+            type: "url",
+            validation: (Rule) => Rule.uri({
+                scheme: ['http', 'https'],
+                allowRelative: false
+            }).error("Payment URL must be a valid URL."),
         })
-
     ]
 });
