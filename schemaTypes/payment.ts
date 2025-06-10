@@ -7,10 +7,9 @@ export const payment = defineType({
     type: "document",
     fields: [
         defineField({
-            name: "user_id",
-            type: "reference",
-            to: [{ type: "user" }],
-            validation: (Rule) => Rule.required(),
+            name: "customer",
+            type: "string",
+            title: "customerID"
         }),
         defineField({
             name: "repair_id",

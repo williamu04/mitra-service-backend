@@ -28,7 +28,7 @@ export const repair = defineType({
     { name: "actualCompletion", type: "datetime", title: "Actual Completion" },
 
     { name: "technician", type: "reference", to: [{ type: "technician" }] },
-    { name: "customer", type: "reference", to: [{ type: "customer" }] },
+    { name: "customer", type: "string", title: "customerID" },
 
     { name: "pricing", type: "pricing", title: "Pricing" },
     { name: "warranty", type: "warranty", title: "Warranty" },
