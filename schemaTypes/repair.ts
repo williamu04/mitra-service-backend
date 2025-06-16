@@ -51,4 +51,10 @@ export const repair = defineType({
 
     {name: 'rating', type: 'number', title: 'Rating', validation: (Rule) => Rule.min(0).max(5)},
   ],
+  preview: {
+    select: {
+      title: "brand",
+      subtitle: "model",
+    }
+  }
 })

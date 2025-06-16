@@ -10,4 +10,10 @@ export const technician = defineType({
     { name: "phone", type: "string", title: "Phone Number" },
     { name: "specialization", type: "string", title: "Specialization" },
   ],
+  preview: {
+    select: {
+      title: "name",
+      subtitle: "specialization",
+    }
+  }
 })

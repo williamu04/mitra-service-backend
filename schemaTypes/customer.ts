@@ -41,4 +41,10 @@ export const customer = defineType({
       initialValue: () => new Date().toISOString(),
     }),
   ],
+  preview: {
+    select: {
+      title: "name",
+      subtitle: "email"
+    }
+  }
 })

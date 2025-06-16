@@ -30,4 +30,10 @@ export const review = defineType({
       title: "Tanggal Rating",
     },
   ],
+  preview: {
+    select: {
+      title: "order.model",
+      subtitle: "score"
+    }
+  }
 });
